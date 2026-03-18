@@ -6,15 +6,15 @@ checkRole($payload, 'Organizzatore');
 if ($method === 'GET') {
     $dal = isset($_GET['dal']) ? $_GET['dal'] : null;
     $al = isset($_GET['al']) ? $_GET['al'] : null;
-    $now = (new DateTime())->format('Y-m-d\TH:i:s');
-    $queryParts = ['Data=lt.'.$now];
+    $queryParts = [];
     if ($dal) {
         $queryParts[] = 'Data=gte.'.$dal;
     }
     if ($al) {
         $queryParts[] = 'Data=lte.'.$al;
     }
-    $queryContext = implode('&', $queryParts) . '&select=*,Iscrizioni(IscrizioneID,CheckinEffettuato)';
+    $queryBase = count($queryParts) > 0 ? implode('&', $queryParts) . '&' : '';
+    $queryContext = $queryBase . 'select=*,Iscrizioni(IscrizioneID,CheckinEffettuato)&order=Data.desc';
     $res = supabaseRequest('GET', 'Eventi', $queryContext);
     if ($res['code'] === 200) {
         $statistiche = [];
