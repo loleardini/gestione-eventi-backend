@@ -1,6 +1,5 @@
 <?php
-
-define('SUPABASE_URL', 'https://dzyzpqblyideqrenuilh.supabase.co'); 
+define('SUPABASE_URL', 'https:
 define('SUPABASE_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR6eXpwcWJseWlkZXFyZW51aWxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MzE1NzcsImV4cCI6MjA4OTQwNzU3N30.sjhjJSlk2wxA1QmPfMJGhcI7UXlDwxPw2zYktH5Wh2c');
 define('JWT_SECRET', 'chiave_segreta_molto_difficile_da_indovinare_per_esame');
 ?>
