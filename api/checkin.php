@@ -4,7 +4,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 $payload = authMiddleware();
 checkRole($payload, 'Organizzatore');
 if ($method === 'POST') {
-    $inputJSON = file_get_contents('php:
+    $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
     if (!isset($input['IscrizioneID'])) {
         jsonResponse(['error' => 'IscrizioneID mancante per il check-in'], 400);

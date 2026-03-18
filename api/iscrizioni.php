@@ -17,7 +17,7 @@ if ($method === 'GET') {
     }
 }
 if ($method === 'POST') {
-    $inputJSON = file_get_contents('php:
+    $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
     if (!isset($input['EventoID'])) {
         jsonResponse(['error' => 'EventoID mancante'], 400);
@@ -49,7 +49,7 @@ if ($method === 'POST') {
     }
 }
 if ($method === 'DELETE') {
-    $inputJSON = file_get_contents('php:
+    $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
     if (!isset($input['IscrizioneID'])) {
         jsonResponse(['error' => 'IscrizioneID mancante per la cancellazione'], 400);

@@ -13,7 +13,7 @@ if ($method === 'GET') {
 }
 checkRole($payload, 'Organizzatore');
 if ($method === 'POST') {
-    $inputJSON = file_get_contents('php:
+    $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
     if (!isset($input['Titolo']) || !isset($input['Data']) || !isset($input['Descrizione'])) {
         jsonResponse(['error' => 'Dati obbligatori mancanti: Titolo, Data, Descrizione'], 400);
@@ -32,7 +32,7 @@ if ($method === 'POST') {
     }
 }
 if ($method === 'PUT') {
-    $inputJSON = file_get_contents('php:
+    $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
     if (!isset($input['EventoID'])) {
         jsonResponse(['error' => 'EventoID mancante'], 400);
@@ -51,7 +51,7 @@ if ($method === 'PUT') {
     }
 }
 if ($method === 'DELETE') {
-    $inputJSON = file_get_contents('php:
+    $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
     if (!isset($input['EventoID'])) {
         jsonResponse(['error' => 'EventoID mancante per la cancellazione'], 400);
