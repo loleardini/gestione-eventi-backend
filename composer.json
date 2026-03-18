@@ -1,1 +1,7 @@
-{}
+{
+  "name": "lorenzo/gestione-eventi-api",
+  "description": "API PHP per Applicazione Eventi",
+  "require": {
+    "php": ">=8.0"
+  }
+}
